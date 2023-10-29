@@ -100,4 +100,4 @@ for symb in all_symbols:
     except Exception as err:
         print(err)
 
-os.system('shutdown -s')
+os.system('sudo shutdown -h now')

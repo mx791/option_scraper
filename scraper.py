@@ -4,7 +4,7 @@ import yfinance as yf
 import datetime
 import os
 import boto3
-
+import subprocess
 
 print("Connection to S3")
 s3 = boto3.client('s3')
@@ -61,3 +61,6 @@ for symb in all_symbols:
 
     except Exception as err:
         pass
+
+
+subprocess.run(["shutdown ", "-h", "now"]) 

@@ -10,11 +10,49 @@ print("Connection to S3")
 s3 = boto3.client('s3')
 print("Connected")
 
-csv_symbs = pd.read_csv("./symbols.csv")["Symbol"].values
 all_symbols = [
-    '^VIX',
-    '^SPX',
-    *csv_symbs
+ '^VIX',
+ 'SNAP',
+ 'VALE',
+ 'FXI',
+ 'INVZ',
+ 'GOOGL',
+ 'JNJ',
+ 'NKLA',
+ 'ET',
+ 'LUMN',
+ 'ASHR',
+ 'EFA',
+ 'F',
+ 'PBR',
+ 'IWM',
+ 'MULN',
+ 'BITO',
+ 'EWZ',
+ 'TLT',
+ 'BAC',
+ 'AMZN',
+ 'C',
+ 'SPY',
+ 'SNDL',
+ 'TSLA',
+ 'QQQ',
+ 'HYG',
+ 'KVUE',
+ 'RIG',
+ 'XELA',
+ '^SPX',
+ 'DISH',
+ 'NU',
+ 'AAL',
+ 'META',
+ 'AAPL',
+ 'DM',
+ 'BBBYQ',
+ 'ATVI',
+ 'XLF',
+ 'ACB',
+ 'PINS'
 ]
 
 BUCKET_NAME = "791-options-data"
@@ -61,7 +99,7 @@ for symb in all_symbols:
             print(len(data))
 
     except Exception as err:
-        pass
+        print(err)
 
 
 subprocess.run(["shutdown ", "-h", "now"]) 

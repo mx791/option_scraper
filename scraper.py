@@ -53,11 +53,12 @@ except Exception as err:
 
 for symb in all_symbols:
     try:
+        print(symb, "...")
         data = get_symbol_data(symb)
         if len(data):
             data.to_csv(name + "/" + symb + ".csv")
             s3.upload_file(name + "/" + symb + ".csv", "791-options-data", name + "/" + symb + ".csv")
-            print(symb, len(data))
+            print(len(data))
 
     except Exception as err:
         pass

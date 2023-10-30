@@ -79,7 +79,7 @@ def get_symbol_data(symbol):
 def get_name():
     dt = datetime.datetime.today()
     #return f"{dt.day}-{dt.month}-{dt.year} {dt.hour}:{dt.minute}"
-    return f"{dt.year}{dt.month}{dt.day}"
+    return f"{dt.year}-{dt.month}-{dt.day}"
 
 name = get_name()
 

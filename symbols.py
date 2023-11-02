@@ -27,6 +27,7 @@ all_symbols = [
   'GM',
   'GDX',
   'GOOGL',
+  'GOLD',
   'HYG',
   'HPQ',
   'IT',

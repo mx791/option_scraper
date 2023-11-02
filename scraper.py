@@ -47,6 +47,8 @@ try:
 except Exception as err:
     print(err)
 
+print(name)
+
 for symb in all_symbols:
     try:
         print(symb, "...")

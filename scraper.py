@@ -5,12 +5,13 @@ import datetime
 import os
 import boto3
 from symbols import all_symbols
-
-print("Connection to S3")
-s3 = boto3.client('s3')
-print("Connected")
+ from datetime import datetime
 
 BUCKET_NAME = "791-options-data"
+
+def log(msg):
+    current_dateTime = datetime.now()
+    print(current_dateTime, msg)
 
 def get_symbol_data(symbol):
     ticker = yf.Ticker(symbol)
@@ -31,7 +32,6 @@ def get_symbol_data(symbol):
         ])
     return df
 
-
 def get_name():
     dt = datetime.datetime.today()
     #return f"{dt.day}-{dt.month}-{dt.year} {dt.hour}:{dt.minute}"
@@ -41,19 +41,25 @@ name = get_name()
 
 try:
     os.mkdir("/home/ec2-user/option_scraper/" + name)
+    log("Created output directory")
 except Exception as err:
-    print(err)
+    log("Error creating data directory")
+    log(err)
 
 print(name)
 
-for symb in all_symbols[0:3]:
+for symb in all_symbols:
     try:
-        print(symb, "...")
+        log("Fetching symbol " + symb)
         data = get_symbol_data(symb)
         if data is not None and len(data):
+            log("Fetched " + str(len(data)) + " lines")
             data.to_csv("/home/ec2-user/option_scraper/" + name + "/" + symb + ".csv")
             s3.upload_file("/home/ec2-user/option_scraper/" + name + "/" + symb + ".csv", "791-options-data", name + "/" + symb + ".csv")
-            print(len(data))
+            log("Pushed CSV to S3")
 
     except Exception as err:
+        print("Error fetching data")
         print(err)
+
+log("Script end")

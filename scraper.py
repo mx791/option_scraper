@@ -40,7 +40,7 @@ def get_name():
 name = get_name()
 
 try:
-    os.mkdir(name)
+    os.mkdir("/home/ec2-user/option_scraper/" + name)
 except Exception as err:
     print(err)
 
@@ -51,8 +51,8 @@ for symb in all_symbols:
         print(symb, "...")
         data = get_symbol_data(symb)
         if data is not None and len(data):
-            data.to_csv(name + "/" + symb + ".csv")
-            s3.upload_file(name + "/" + symb + ".csv", "791-options-data", name + "/" + symb + ".csv")
+            data.to_csv("/home/ec2-user/option_scraper/" + name + "/" + symb + ".csv")
+            s3.upload_file("/home/ec2-user/option_scraper/" + name + "/" + symb + ".csv", "791-options-data", name + "/" + symb + ".csv")
             print(len(data))
 
     except Exception as err:

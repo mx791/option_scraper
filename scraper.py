@@ -10,7 +10,7 @@ s3 = boto3.client('s3')
 print("Connected")
 
 all_symbols = [
- 'AAL', 'AAPL', 'ACB', 'AC.PA', 'ADM', 'AIR.PA', 'AMZN', 'ASHR', 'ATVI', 'BAC', 'BBBYQ', 'BITO', 'C', 'DISH', 'DM', 'EBAY', 'EFA', 'ESI.PA', 'ET', 'EWZ', 'F', 'FXI', 'GM', 'GOOGL', 'HYG', 'IT', 'INVZ', 'IWM', 'JNJ', 'KVUE', 'LUMN', 'MCD', 'META', 'MRNA', 'MULN', 'NFLX', 'NKLA', 'NU', 'NVDA', 'PBR', 'PINS', 'QQQ', 'RIG', 'SNAP', 'SNDL', 'SPY', 'TLT', 'TSLA', 'VALE', 'WAVE.PA', 'XELA', 'XLF', '^SPX', '^VIX'
+ 'AAL', 'AAPL', 'ACB', 'ADM', 'AMZN', 'ASHR', 'ATVI', 'BAC', 'BBBYQ', 'BITO', 'C', 'DISH', 'DM', 'EBAY', 'EFA', 'ET', 'EWZ', 'F', 'FXI', 'GM', 'GOOGL', 'HYG', 'IT', 'INVZ', 'IWM', 'JNJ', 'KVUE', 'LUMN', 'MCD', 'META', 'MRNA', 'MULN', 'NFLX', 'NKLA', 'NU', 'NVDA', 'PBR', 'PINS', 'QQQ', 'RIG', 'SNAP', 'SNDL', 'SPY', 'TLT', 'TSLA', 'VALE', 'WAVE.PA', 'XELA', 'XLF', '^SPX', '^VIX'
 ]
 
 BUCKET_NAME = "791-options-data"

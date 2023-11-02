@@ -5,7 +5,7 @@ import datetime
 import os
 import boto3
 from symbols import all_symbols
- from datetime import datetime
+from datetime import datetime
 
 BUCKET_NAME = "791-options-data"
 

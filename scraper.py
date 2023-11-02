@@ -4,7 +4,7 @@ import yfinance as yf
 import datetime
 import os
 import boto3
-from .symbols import all_symbols
+from symbols import all_symbols
 
 print("Connection to S3")
 s3 = boto3.client('s3')

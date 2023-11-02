@@ -6,3 +6,4 @@ sudo chmod 777 launch.sh
 # pip install -r requirements.txt
 python scraper.py >> logs.txt
 python send_logs.py
+sudo shutdown -h now

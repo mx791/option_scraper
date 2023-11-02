@@ -7,6 +7,7 @@ import boto3
 from symbols import all_symbols
 
 BUCKET_NAME = "791-options-data"
+s3 = boto3.client('s3')
 
 def log(msg):
     current_dateTime = datetime.datetime.now()

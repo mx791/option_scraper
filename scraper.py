@@ -41,14 +41,12 @@ name = get_name()
 
 try:
     os.mkdir("/home/ec2-user/option_scraper/" + name)
-    log("Created output directory")
+    log("Created output directory " + name)
 except Exception as err:
     log("Error creating data directory")
     log(err)
 
-print(name)
-
-for symb in all_symbols[0:5]:
+for symb in all_symbols:
     try:
         log("Fetching symbol " + symb)
         data = get_symbol_data(symb)

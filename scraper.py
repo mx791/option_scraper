@@ -4,14 +4,11 @@ import yfinance as yf
 import datetime
 import os
 import boto3
+from .symbols import all_symbols
 
 print("Connection to S3")
 s3 = boto3.client('s3')
 print("Connected")
-
-all_symbols = [
- 'AAL', 'AAPL', 'ACB', 'ADM', 'AMZN', 'ASHR', 'ATVI', 'BAC', 'BBBYQ', 'BITO', 'C', 'DISH', 'DM', 'EBAY', 'EFA', 'ET', 'EWZ', 'F', 'FXI', 'GM', 'GOOGL', 'HYG', 'IT', 'INVZ', 'IWM', 'JNJ', 'KVUE', 'LUMN', 'MCD', 'META', 'MRNA', 'MULN', 'NFLX', 'NKLA', 'NU', 'NVDA', 'PBR', 'PINS', 'QQQ', 'RIG', 'SNAP', 'SNDL', 'SPY', 'TLT', 'TSLA', 'VALE', 'WAVE.PA', 'XELA', 'XLF', '^SPX', '^VIX'
-]
 
 BUCKET_NAME = "791-options-data"
 
@@ -53,7 +50,7 @@ for symb in all_symbols:
     try:
         print(symb, "...")
         data = get_symbol_data(symb)
-        if len(data):
+        if data is not None and len(data):
             data.to_csv(name + "/" + symb + ".csv")
             s3.upload_file(name + "/" + symb + ".csv", "791-options-data", name + "/" + symb + ".csv")
             print(len(data))

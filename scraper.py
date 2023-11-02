@@ -48,7 +48,7 @@ except Exception as err:
 
 print(name)
 
-for symb in all_symbols:
+for symb in all_symbols[0:5]:
     try:
         log("Fetching symbol " + symb)
         data = get_symbol_data(symb)

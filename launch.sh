@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 cd /home/ec2-user/option_scraper
-git stash
 git pull --force > logs.txt
 # pip install -r requirements.txt
 python scraper.py >> logs.txt

@@ -5,12 +5,11 @@ import datetime
 import os
 import boto3
 from symbols import all_symbols
-from datetime import datetime
 
 BUCKET_NAME = "791-options-data"
 
 def log(msg):
-    current_dateTime = datetime.now()
+    current_dateTime = datetime.datetime.now()
     print(current_dateTime, msg)
 
 def get_symbol_data(symbol):

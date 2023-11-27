@@ -55,7 +55,6 @@ for symb in all_symbols:
             log("Fetched " + str(len(data)) + " lines")
             data.to_csv("/home/ec2-user/option_scraper/" + name + "/" + symb + ".csv")
             s3.upload_file("/home/ec2-user/option_scraper/" + name + "/" + symb + ".csv", "791-options-data", name + "/" + symb + ".csv")
-            log("Pushed CSV to S3")
             success += 1
             nb_lines += len(data)
 
@@ -64,5 +63,5 @@ for symb in all_symbols:
         print(err)
 
 log("Script end")
-log(str(success) + " symboles scrappés avec succès")
+log(str(success) + "/" + str(len(all_symbols)) + " symboles scrappés avec succès")
 log(str(nb_lines) + " lignes ajoutés au dataset")

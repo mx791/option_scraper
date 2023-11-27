@@ -46,6 +46,7 @@ except Exception as err:
     log("Error creating data directory")
     log(err)
 
+success, nb_lines = 0, 0
 for symb in all_symbols:
     try:
         log("Fetching symbol " + symb)
@@ -55,9 +56,13 @@ for symb in all_symbols:
             data.to_csv("/home/ec2-user/option_scraper/" + name + "/" + symb + ".csv")
             s3.upload_file("/home/ec2-user/option_scraper/" + name + "/" + symb + ".csv", "791-options-data", name + "/" + symb + ".csv")
             log("Pushed CSV to S3")
+            success += 1
+            nb_lines += len(data)
 
     except Exception as err:
         print("Error fetching data")
         print(err)
 
 log("Script end")
+log(str(success) + " symboles scrappés avec succès")
+log(str(nb_lines) + " lignes ajoutés au dataset")
